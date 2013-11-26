@@ -1,0 +1,45 @@
+package com.nautica.test;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Test;
+
+import com.nautica.*;
+import com.nautica.util.ReadingProperties;
+
+import UtilClasses.KipCommonMethods;
+
+public class CheckoutSuite {
+	private WebDriver driver;
+	private boolean acceptNextAlert = true;
+	private StringBuffer verificationErrors = new StringBuffer();
+	private WebDriverWait wait; 
+	Actions action;
+
+	KipCommonMethods kp= new KipCommonMethods();
+	private boolean stagingTrue;
+	private boolean devTrue;
+	ReadingProperties rp=new ReadingProperties();
+	@BeforeSuite
+public void setUp() throws Exception {
+		
+		
+		driver = new FirefoxDriver();
+		wait = new WebDriverWait(driver,25);
+		action = new Actions(driver);
+		//File file=new File("/Users/igonzalez/Desktop/SELENIUM_jar/selenium/chromedriver");
+		//System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
+		//driver = new ChromeDriver();
+	}
+	
+	@Test(priority=1)
+	public void openNauUrl()
+	{
+		String url=rp.readConfigProperties("nau_baseUrl");
+		driver.get(url);
+		
+	}
+}

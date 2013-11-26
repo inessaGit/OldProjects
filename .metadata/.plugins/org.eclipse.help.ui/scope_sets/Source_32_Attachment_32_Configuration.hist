@@ -1,0 +1,5 @@
+#Fri Nov 22 22:30:02 PST 2013
+__DEFAULT__=false
+org.eclipse.sdk.Eclipse.master=true
+org.eclipse.help.ui.localSearch.master=true
+expression=Source Attachment Configuration

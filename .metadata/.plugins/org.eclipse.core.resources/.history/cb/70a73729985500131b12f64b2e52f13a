@@ -1,0 +1,172 @@
+package KiplingTest;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+import java.util.regex.Matcher;
+
+import org.openqa.selenium.*;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.Augmenter;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
+import org.openqa.selenium.support.events.WebDriverEventListener;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.WebDriver;
+import org.apache.commons.io.FileUtils;
+import org.junit.*;
+import org.testng.Reporter;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.safari.SafariDriver;
+
+import Nautica.NauticaCommon.*;
+import UtilClasses.KipCommonMethods;
+
+public class testKiplingCommon {
+	
+	private static WebDriver driver; //declared but no instance yet
+	  String monogramItem= "100104116";
+    String visaCard ="4111111111111111";
+    String cardPin ="111";
+    String giftCard= "0000800752000000001";
+    String giftPin="1234";
+    static String coupon= "CONSUMERR";
+    static String email = "software_test22@hotmail.com";
+    static String password = "kiplling1";
+   
+   static String url;
+   
+ //@BeforeMethod is invoked before each method with a @Test annotation.
+   
+ 	@BeforeTest 
+ 	public static void setUp()
+ 	{ 
+ 		
+ 		//NauticaCommon.useChrome(driver);
+ 		//driver =new ChromeDriver(); //CAN USE CHROME
+ 		
+ 		//driver = new SafariDriver(); //CAN USE SAFARI 6
+ 		
+ 		driver = new FirefoxDriver();//CAN USE FIREFOX 24
+
+ 		KipCommonMethods.defaultWindowSize(driver);
+ 		  url=KipCommonMethods.getUrl("stagingUrl");//can be "stagingUrl" or "baseUrl" which is production
+ 		 
+ 		driver.get(url);
+ 		
+ 	}
+ 	
+	
+ 	 @Test
+     public  void searchForMonogramItem() {
+ 		System.out.println(url);
+         
+  WebElement searchBox = driver.findElement(By.id("search-query"));
+   WebElement searchBtn= driver.findElement(By.className("magBtn"));
+  searchBox.clear();
+  searchBox.sendKeys(monogramItem);
+  searchBtn.click();
+  String monogramPageTitle = driver.getTitle();
+
+  System.out.println("After search for monogram item -current page title is "+ monogramPageTitle+ ". Successful search");
+  driver.quit();
+
+     }
+    
+     @Test
+     public void simpleCheckoutGuest()
+       {
+           
+            KipCommonMethods.backpacksSubcategory(driver);//MODIFIABLE
+            KipCommonMethods.backpacksPDP(driver); //MODIFIABLE
+            KipCommonMethods.PDPswatchColor(driver);//MODIFIABLE
+           
+            KipCommonMethods.takeScreenshot(driver);
+
+            KipCommonMethods.PDPquantity(driver);//MODIFIABLE
+            KipCommonMethods.takeScreenshot(driver);
+            KipCommonMethods.writeRewiewOnPDP(driver);
+            driver.findElement(By.id("add-to-cart")).click();
+            //KipCommonMethods.checkoutCart(driver); //NO COUPON JUST AN ITEM
+            KipCommonMethods.cartCoupon(driver);//EITHER .checkoutCart OR .cartCoupon
+            //KipCommonMethods.takeScreenshot(driver);//to get info of what's happening after applying coupon
+            
+            KipCommonMethods.checkoutSignInGuest(driver);
+
+       }
+     
+     @Test
+     public void simpleCheckoutSignInEmail()
+       {
+           
+            KipCommonMethods.backpacksSubcategory(driver);//MODIFIABLE
+            KipCommonMethods.backpacksPDP(driver); //MODIFIABLE
+            KipCommonMethods.PDPswatchColor(driver);//MODIFIABLE
+           
+            KipCommonMethods.takeScreenshot(driver);
+
+            KipCommonMethods.PDPquantity(driver);//MODIFIABLE
+            KipCommonMethods.takeScreenshot(driver);
+            KipCommonMethods.writeRewiewOnPDP(driver);
+            driver.findElement(By.id("add-to-cart")).click();
+            //KipCommonMethods.checkoutCart(driver); //NO COUPON JUST AN ITEM
+            KipCommonMethods.cartCoupon(driver);//EITHER .checkoutCart OR .cartCoupon
+            
+            KipCommonMethods.checkoutSignInEmail(driver);
+            
+            //KipCommonMethods.logout(driver);
+
+       }
+     
+     @Test
+ 	public void testTrackEvent( )
+      {
+           driver.get("devUrl");
+             KipCommonMethods.trackEvent(driver);
+          
+      }
+      
+      @Test
+      public void testCountry()
+      {
+
+                 KipCommonMethods.backpacksSubcategory(driver);//MODIFIABLE
+                 KipCommonMethods.backpacksPDP(driver); //MODIFIABLE
+                 KipCommonMethods.PDPswatchColor(driver);//MODIFIABLE
+                
+                 KipCommonMethods.takeScreenshot(driver);
+
+                 KipCommonMethods.PDPquantity(driver);//MODIFIABLE
+                 KipCommonMethods.takeScreenshot(driver);
+
+                 driver.findElement(By.id("add-to-cart")).click();
+                 //KipCommonMethods.checkoutCart(driver); //NO COUPON JUST AN ITEM
+                 KipCommonMethods.cartCoupon(driver);//EITHER .checkoutCart OR .cartCoupon
+                 KipCommonMethods.takeScreenshot(driver);//to get info of what's happening after applying coupon
+                 
+                 KipCommonMethods.checkoutSignInGuest(driver);
+                 KipCommonMethods.checkoutCountries(driver);
+                 KipCommonMethods.selectCountry(driver);
+
+            }
+ 	
+ 	 @AfterTest
+	    public static void endTest()
+	    {
+	    	//driver.quit();
+
+	    }
+
+}

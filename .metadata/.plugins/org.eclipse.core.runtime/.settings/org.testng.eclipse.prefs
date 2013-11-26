@@ -1,0 +1,4 @@
+Fluid.absolutepath=true
+Fluid.outdir=/Users/igonzalez/Desktop/WORKING_WITH_ECLIPSE/Fluid/src/testNG_report
+FluidxmlTemplateFile=/Users/igonzalez/Desktop/SELENIUM_jar/testng-6.8/examples
+eclipse.preferences.version=1

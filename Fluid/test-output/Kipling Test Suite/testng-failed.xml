@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Kipling Test Suite]">
+  <test name="testHomeSubcat(failed)">
+    <classes>
+      <class name="KiplingCommon.KipCheckoutUSAMonogram">
+        <methods>
+          <include name="setUp"/>
+          <include name="endTest"/>
+        </methods>
+      </class> <!-- KiplingCommon.KipCheckoutUSAMonogram -->
+      <class name="Nautica.TestNauticaCommon">
+        <methods>
+          <include name="testWomenSubcat"/>
+          <include name="testHomeSubcat"/>
+          <include name="endTest"/>
+          <include name="setUp"/>
+          <include name="testWatchesSubcat"/>
+          <include name="testSaleSubcat"/>
+        </methods>
+      </class> <!-- Nautica.TestNauticaCommon -->
+      <class name="KiplingCommon.KipCheckoutUSAMonogramWithCoupon">
+        <methods>
+          <include name="endTest"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- KiplingCommon.KipCheckoutUSAMonogramWithCoupon -->
+      <class name="KiplingCommon.KipCheckoutUSA">
+        <methods>
+          <include name="setUp"/>
+          <include name="endTest"/>
+        </methods>
+      </class> <!-- KiplingCommon.KipCheckoutUSA -->
+    </classes>
+  </test> <!-- testHomeSubcat(failed) -->
+</suite> <!-- Failed suite [Kipling Test Suite] -->

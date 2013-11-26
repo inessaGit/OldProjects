@@ -1,0 +1,9 @@
+testSiteBaseURL=http://www.nautica.com
+Username=storefront
+password=vfc123
+browserType=Mozilla
+
+report_file_name=TestReports.zip
+environment=Production
+release=Nov22
+Filename=screenshotreport

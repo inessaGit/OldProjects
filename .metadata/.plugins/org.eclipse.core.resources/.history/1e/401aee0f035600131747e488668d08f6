@@ -1,0 +1,122 @@
+package UtilClasses;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Properties;
+
+import org.apache.log4j.Logger;
+
+
+//this is a class for reading from properties files; 
+//it has 2 methods: one for reading from locators.properties and another for environment.properties
+//Test class is for unit testing (which was successful);
+
+public class ReadingProperties {
+
+	public   String value;
+	Logger loger=Logger.getLogger("myLogger");
+
+	public  String readLocatorsProperties(String key)
+	{
+		
+		loger.debug("hello this is a test reading from locators.properties");
+		Properties property=new Properties();
+
+		File file = new  File("locators.properties");
+		try {
+			System.out.println("path is "+file.getCanonicalPath());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		//read from the properties file		
+		FileInputStream fis = null;
+		try {
+			fis = new FileInputStream("/Users/igonzalez/Desktop/WORKING_WITH_ECLIPSE/Fluid/src/config/locators.properties");
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		try {
+
+			property.load(fis);
+			fis.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		//System.out.println(property.getProperty("kip_stagingUrl"));
+if (key!=null)
+{
+		System.out.println("Reading from locators.properties file");
+loger.debug("Successfully read from locators.properties file. ");
+		value =	property.getProperty(key);
+}
+
+else 
+{
+	loger.debug("Could not read specified key from the locators.properties file");
+}
+		return value;
+	}
+	
+	public  String readEnvironmentProperties(String key)
+	{
+		loger.debug("hello this is a test for reading from environment.properties ");
+
+		Properties property=new Properties();
+
+		File file = new  File("environment.properties");
+		try {
+			System.out.println("path is "+file.getCanonicalPath());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		//read from the properties file		
+		FileInputStream fis = null;
+		try {
+			fis = new FileInputStream("/Users/igonzalez/Desktop/WORKING_WITH_ECLIPSE/Fluid/src/config/environment.properties");
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		try {
+
+			property.load(fis);
+			fis.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		//System.out.println(property.getProperty("kip_stagingUrl"));
+if (key!=null)
+{
+		System.out.println("Reading from environement.properties file");
+loger.debug("Successfully read from environment.properties file. ");
+		value =	property.getProperty(key);
+}
+
+else 
+{
+	loger.debug("Could not read specified key from the environment.properties file");
+}
+		return value;
+	}
+
+}
+
+class TestReadingProperies
+{
+	public static void main (String args[])
+	{
+		ReadingProperties rp= new ReadingProperties();
+		String s =rp.readLocatorsProperties("kip_firstNameId");
+		System.out.println(s);
+		String e= rp.readEnvironmentProperties("kip_stagingUrl");
+		Logger log = Logger.getLogger("myLog");
+		log.debug(e);
+		log.debug(s);
+		
+	}
+}

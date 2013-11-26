@@ -1,0 +1,42 @@
+package KiplingCommon;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Properties;
+
+import org.apache.log4j.Logger;
+
+public class ReadingProperties {
+
+	public static void main(String[] args) {
+		Logger loger=Logger.getLogger("myLogger");
+		loger.debug("hello this is a test ");
+		
+		Properties property=new Properties();
+		
+		File file = new  File("environment.properties");
+		try {
+			System.out.println("path is "+file.getCanonicalPath());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		//read from the properties file		
+				FileInputStream fis = null;
+				try {
+					fis = new FileInputStream("/Users/igonzalez/Desktop/WORKING_WITH_ECLIPSE/Fluid/environment.properties");
+				} catch (FileNotFoundException e) {
+					e.printStackTrace();
+				}
+				try {
+					
+					property.load(fis);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+System.out.println(property.getProperty("kip_stagingUrl"));
+	}
+
+}

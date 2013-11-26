@@ -1,0 +1,357 @@
+2013-11-24 03:22:46 DEBUG myLogger:21 - hello
+2013-11-24 03:22:46 DEBUG myLogger:22 - writing to log file
+2013-11-24 03:22:46 DEBUG myLogger:23 - starting xyz test
+2013-11-25 11:01:44 INFO  myLogger:66 - hello this is a test for reading from config.properties 
+2013-11-25 11:04:04 INFO  myLogger:68 - hello this is a test for reading from config.properties 
+2013-11-25 11:04:04 INFO  myLogger:98 - Successfully read from environment.properties file. 
+2013-11-25 11:04:04 DEBUG myLogger:24 - hello this is a test reading from OR.properties
+2013-11-25 11:04:04 DEBUG myLogger:53 - Successfully read from OR.properties file. 
+2013-11-25 11:04:04 DEBUG myLog:120 - Inessa
+2013-11-25 11:04:04 DEBUG myLog:121 - storefront
+2013-11-25 11:28:44 INFO  myLogger:68 - hello this is a test for reading from config.properties 
+2013-11-25 11:28:44 INFO  myLogger:98 - Successfully read from environment.properties file. 
+2013-11-25 11:28:44 INFO  myLogger:68 - hello this is a test for reading from config.properties 
+2013-11-25 11:28:44 INFO  myLogger:98 - Successfully read from environment.properties file. 
+2013-11-25 11:28:44 INFO  myLogger:46 - EnvironementProduction
+2013-11-25 11:28:44 INFO  myLogger:68 - hello this is a test for reading from config.properties 
+2013-11-25 11:28:44 INFO  myLogger:98 - Successfully read from environment.properties file. 
+2013-11-25 11:28:44 INFO  myLogger:68 - hello this is a test for reading from config.properties 
+2013-11-25 11:28:44 INFO  myLogger:98 - Successfully read from environment.properties file. 
+2013-11-25 11:28:44 INFO  myLogger:50 - release Nov22
+2013-11-25 11:32:05 INFO  myLogger:68 - hello this is a test for reading from config.properties 
+2013-11-25 11:32:05 INFO  myLogger:98 - Successfully read from environment.properties file. 
+2013-11-25 11:32:05 INFO  myLogger:68 - hello this is a test for reading from config.properties 
+2013-11-25 11:32:05 INFO  myLogger:98 - Successfully read from environment.properties file. 
+2013-11-25 11:32:05 INFO  myLogger:47 - Environement Production
+2013-11-25 11:32:05 INFO  myLogger:68 - hello this is a test for reading from config.properties 
+2013-11-25 11:32:05 INFO  myLogger:98 - Successfully read from environment.properties file. 
+2013-11-25 11:32:05 INFO  myLogger:68 - hello this is a test for reading from config.properties 
+2013-11-25 11:32:05 INFO  myLogger:98 - Successfully read from environment.properties file. 
+2013-11-25 11:32:05 INFO  myLogger:51 - release Nov22
+2013-11-25 11:32:05 INFO  myLogger:52 - folder that contains reports: Reports_2013-Nov-25-11hr-32min
+2013-11-25 11:33:35 INFO  myLogger:68 - Started reading from config.properties 
+2013-11-25 11:33:35 INFO  myLogger:98 - Successfully read from environment.properties file. 
+2013-11-25 11:33:35 INFO  myLogger:68 - Started reading from config.properties 
+2013-11-25 11:33:35 INFO  myLogger:98 - Successfully read from environment.properties file. 
+2013-11-25 11:33:35 INFO  myLogger:47 - Environement Production
+2013-11-25 11:33:35 INFO  myLogger:68 - Started reading from config.properties 
+2013-11-25 11:33:35 INFO  myLogger:98 - Successfully read from environment.properties file. 
+2013-11-25 11:33:35 INFO  myLogger:68 - Started reading from config.properties 
+2013-11-25 11:33:35 INFO  myLogger:98 - Successfully read from environment.properties file. 
+2013-11-25 11:33:35 INFO  myLogger:51 - release Nov22
+2013-11-25 11:33:35 INFO  myLogger:52 - folder that contains reports: Reports_2013-Nov-25-11hr-33min
+2013-11-25 11:35:11 INFO  myLogger:68 - Started reading from config.properties 
+2013-11-25 11:35:11 INFO  myLogger:98 - Successfully read from config.properties file. 
+2013-11-25 11:35:11 INFO  myLogger:68 - Started reading from config.properties 
+2013-11-25 11:35:11 INFO  myLogger:98 - Successfully read from config.properties file. 
+2013-11-25 11:35:11 INFO  myLogger:47 - Environement Production
+2013-11-25 11:35:11 INFO  myLogger:68 - Started reading from config.properties 
+2013-11-25 11:35:11 INFO  myLogger:98 - Successfully read from config.properties file. 
+2013-11-25 11:35:11 INFO  myLogger:68 - Started reading from config.properties 
+2013-11-25 11:35:11 INFO  myLogger:98 - Successfully read from config.properties file. 
+2013-11-25 11:35:11 INFO  myLogger:51 - release Nov22
+2013-11-25 11:35:11 INFO  myLogger:52 - folder that contains reports: Reports_2013-Nov-25-11hr-35min
+2013-11-25 11:40:31 INFO  myLogger:98 - Successfully read from config.properties file. 
+2013-11-25 11:40:31 INFO  myLogger:98 - Successfully read from config.properties file. 
+2013-11-25 11:40:31 INFO  myLogger:47 - Environement Production
+2013-11-25 11:40:31 INFO  myLogger:98 - Successfully read from config.properties file. 
+2013-11-25 11:40:31 INFO  myLogger:98 - Successfully read from config.properties file. 
+2013-11-25 11:40:31 INFO  myLogger:51 - release Nov22
+2013-11-25 11:40:31 INFO  myLogger:52 - folder that contains reports: Reports_2013-Nov-25-11hr-40min
+2013-11-25 11:54:09 INFO  myLogger:103 - Successfully read from config.properties file. 
+2013-11-25 11:54:09 INFO  myLogger:103 - Successfully read from config.properties file. 
+2013-11-25 11:54:09 INFO  myLogger:48 - Environement Production
+2013-11-25 11:54:09 INFO  myLogger:103 - Successfully read from config.properties file. 
+2013-11-25 11:54:09 INFO  myLogger:103 - Successfully read from config.properties file. 
+2013-11-25 11:54:09 INFO  myLogger:52 - release Nov22
+2013-11-25 11:54:09 INFO  myLogger:53 - folder that contains reports: Reports_2013-Nov-25-11hr-54min
+2013-11-25 11:55:33 INFO  myLog:103 - Successfully read from config.properties file. 
+2013-11-25 11:55:33 INFO  myLog:59 - Successfully read from OR.properties file. 
+2013-11-25 11:55:33 DEBUG myLog:126 - Inessa
+2013-11-25 11:55:33 DEBUG myLog:127 - storefront
+2013-11-25 11:55:58 INFO  myLog:103 - Successfully read from config.properties file. 
+2013-11-25 11:55:58 INFO  myLog:59 - Successfully read from OR.properties file. 
+2013-11-25 11:55:58 DEBUG myLog:126 - Inessa
+2013-11-25 11:55:58 DEBUG myLog:127 - 
+2013-11-25 13:57:22 INFO  myLogger:103 - Successfully read from config.properties file. 
+2013-11-25 13:57:22 INFO  myLogger:103 - Successfully read from config.properties file. 
+2013-11-25 13:57:22 INFO  myLogger:48 - Environement Production
+2013-11-25 13:57:22 INFO  myLogger:103 - Successfully read from config.properties file. 
+2013-11-25 13:57:22 INFO  myLogger:103 - Successfully read from config.properties file. 
+2013-11-25 13:57:22 INFO  myLogger:52 - release Nov22
+2013-11-25 13:57:22 INFO  myLogger:53 - folder that contains reports: Reports_2013-Nov-25-13hr-57min
+2013-11-25 14:00:01 INFO  myLog:103 - Successfully read from config.properties file. 
+2013-11-25 14:00:01 INFO  myLog:59 - Successfully read from OR.properties file. 
+2013-11-25 14:00:01 DEBUG myLog:126 - Inessa
+2013-11-25 14:00:01 DEBUG myLog:127 - 
+2013-11-25 14:03:34 DEBUG myLog:109 - Could not read specified key from the config.properties file
+2013-11-25 14:03:34 INFO  myLog:59 - Successfully read from OR.properties file. 
+2013-11-25 14:03:34 DEBUG myLog:126 - Inessa
+2013-11-25 14:03:34 DEBUG myLog:127 - 
+2013-11-25 14:06:25 DEBUG myLog:107 - Could not read specified key from the config.properties file
+2013-11-25 14:06:25 INFO  myLog:58 - Successfully read from OR.properties file. 
+2013-11-25 14:06:25 DEBUG myLog:124 - Inessa
+2013-11-25 14:06:25 DEBUG myLog:125 - 
+2013-11-25 14:08:51 DEBUG myLog:107 - Could not read specified key from the config.properties file
+2013-11-25 14:08:51 INFO  myLog:58 - Successfully read from OR.properties file. 
+2013-11-25 14:08:51 DEBUG myLog:125 - Inessa
+2013-11-25 14:08:51 DEBUG myLog:126 - 
+2013-11-25 14:09:36 DEBUG myLog:107 - Could not read specified key from the config.properties file
+2013-11-25 14:09:36 INFO  myLog:58 - Successfully read from OR.properties file. 
+2013-11-25 14:09:36 DEBUG myLog:125 - Inessa
+2013-11-25 14:09:36 DEBUG myLog:126 - 
+2013-11-25 14:10:27 DEBUG myLogger:107 - Could not read specified key from the config.properties file
+2013-11-25 14:10:27 INFO  myLogger:101 - Successfully read from config.properties file. 
+2013-11-25 14:10:27 INFO  myLogger:48 - Environement Production
+2013-11-25 14:10:27 INFO  myLogger:101 - Successfully read from config.properties file. 
+2013-11-25 14:10:27 INFO  myLogger:101 - Successfully read from config.properties file. 
+2013-11-25 14:10:27 INFO  myLogger:52 - release Nov22
+2013-11-25 14:10:27 INFO  myLogger:53 - folder that contains reports: Reports_2013-Nov-25-14hr-10min
+2013-11-25 14:11:33 DEBUG myLogger:107 - Could not read specified key from the config.properties file
+2013-11-25 14:11:33 INFO  myLogger:101 - Successfully read from config.properties file. 
+2013-11-25 14:11:33 INFO  myLogger:48 - Environement Production
+2013-11-25 14:11:33 INFO  myLogger:101 - Successfully read from config.properties file. 
+2013-11-25 14:11:33 INFO  myLogger:101 - Successfully read from config.properties file. 
+2013-11-25 14:11:33 INFO  myLogger:52 - release Nov22
+2013-11-25 14:11:33 INFO  myLogger:53 - folder that contains reports: Reports_2013-Nov-25-14hr-11min
+2013-11-25 14:13:22 DEBUG myLog:102 - Could not read specified key from the config.properties file
+2013-11-25 14:13:22 INFO  myLog:56 - Successfully read from OR.properties file. 
+2013-11-25 14:13:22 DEBUG myLog:119 - Inessa
+2013-11-25 14:13:22 DEBUG myLog:120 - 
+2013-11-25 14:16:18 DEBUG myLogger:102 - Could not read specified key from the config.properties file
+2013-11-25 14:16:18 INFO  myLogger:96 - Successfully read from config.properties file. 
+2013-11-25 14:16:18 INFO  myLogger:47 - Environement Production
+2013-11-25 14:16:18 INFO  myLogger:96 - Successfully read from config.properties file. 
+2013-11-25 14:16:18 INFO  myLogger:96 - Successfully read from config.properties file. 
+2013-11-25 14:16:18 INFO  myLogger:51 - release Nov22
+2013-11-25 14:16:18 INFO  myLogger:52 - folder that contains reports: Reports_2013-Nov-25-14hr-16min
+2013-11-25 14:17:22 DEBUG myLogger:102 - Could not read specified key from the config.properties fileenvironment 
+2013-11-25 14:17:22 INFO  myLogger:96 - Successfully read from config.properties file. 
+2013-11-25 14:17:22 INFO  myLogger:47 - Environement Production
+2013-11-25 14:17:22 INFO  myLogger:96 - Successfully read from config.properties file. 
+2013-11-25 14:17:22 INFO  myLogger:96 - Successfully read from config.properties file. 
+2013-11-25 14:17:22 INFO  myLogger:51 - release Nov22
+2013-11-25 14:17:22 INFO  myLogger:52 - folder that contains reports: Reports_2013-Nov-25-14hr-17min
+2013-11-25 14:18:13 DEBUG myLogger:102 - Could not read specified key from the config.properties fileenvironment 
+2013-11-25 14:18:13 INFO  myLogger:96 - Successfully read from config.properties file environment
+2013-11-25 14:18:13 INFO  myLogger:47 - Environement Production
+2013-11-25 14:18:13 INFO  myLogger:96 - Successfully read from config.properties file release
+2013-11-25 14:18:13 INFO  myLogger:96 - Successfully read from config.properties file release
+2013-11-25 14:18:13 INFO  myLogger:51 - release Nov22
+2013-11-25 14:18:13 INFO  myLogger:52 - folder that contains reports: Reports_2013-Nov-25-14hr-18min
+2013-11-25 14:19:09 DEBUG myLogger:101 - Could not read specified key from the config.properties file <environment >
+2013-11-25 14:19:09 INFO  myLogger:95 - Successfully read from config.properties file environment
+2013-11-25 14:19:09 INFO  myLogger:47 - Environement Production
+2013-11-25 14:19:09 INFO  myLogger:95 - Successfully read from config.properties file release
+2013-11-25 14:19:09 INFO  myLogger:95 - Successfully read from config.properties file release
+2013-11-25 14:19:09 INFO  myLogger:51 - release Nov22
+2013-11-25 14:19:09 INFO  myLogger:52 - folder that contains reports: Reports_2013-Nov-25-14hr-19min
+2013-11-25 14:27:27 DEBUG myLogger:102 - Could not read specified key from the config.properties file <environment >
+2013-11-25 14:27:27 INFO  myLogger:96 - Successfully read from config.properties file environment
+2013-11-25 14:27:27 INFO  myLogger:47 - Environement Production
+2013-11-25 14:27:27 INFO  myLogger:96 - Successfully read from config.properties file release
+2013-11-25 14:27:27 INFO  myLogger:96 - Successfully read from config.properties file release
+2013-11-25 14:27:27 INFO  myLogger:51 - release Nov22
+2013-11-25 14:27:27 INFO  myLogger:52 - folder that contains reports: Reports_2013-Nov-25-14hr-27min
+2013-11-25 14:28:07 DEBUG myLogger:102 - Could not read specified key from the config.properties file <environment >
+2013-11-25 14:28:07 INFO  myLogger:96 - Successfully read from config.properties file <environment>
+2013-11-25 14:28:07 INFO  myLogger:47 - Environement Production
+2013-11-25 14:28:07 INFO  myLogger:96 - Successfully read from config.properties file <release>
+2013-11-25 14:28:07 INFO  myLogger:96 - Successfully read from config.properties file <release>
+2013-11-25 14:28:07 INFO  myLogger:51 - release Nov22
+2013-11-25 14:28:07 INFO  myLogger:52 - folder that contains reports: Reports_2013-Nov-25-14hr-28min
+2013-11-25 14:31:25 DEBUG myLogger:107 - Could not read specified key from the config.properties file <environment >
+2013-11-25 14:31:25 INFO  myLogger:101 - Successfully read from config.properties file <environment>
+2013-11-25 14:31:25 INFO  myLogger:47 - Environement Production
+2013-11-25 14:31:25 INFO  myLogger:101 - Successfully read from config.properties file <release>
+2013-11-25 14:31:25 INFO  myLogger:101 - Successfully read from config.properties file <release>
+2013-11-25 14:31:25 INFO  myLogger:51 - release Nov22
+2013-11-25 14:31:25 INFO  myLogger:52 - folder that contains reports: Reports_2013-Nov-25-14hr-31min
+2013-11-25 14:36:15 DEBUG myLogger:109 - Could not read specified key from the config.properties file <environment >
+2013-11-25 14:36:15 INFO  myLogger:103 - Successfully read from config.properties file <environment>
+2013-11-25 14:36:15 INFO  myLogger:47 - Environement Production
+2013-11-25 14:36:15 INFO  myLogger:103 - Successfully read from config.properties file <release>
+2013-11-25 14:36:15 INFO  myLogger:103 - Successfully read from config.properties file <release>
+2013-11-25 14:36:15 INFO  myLogger:51 - release Nov22
+2013-11-25 14:36:15 INFO  myLogger:52 - folder that contains reports: Reports_2013-Nov-25-14hr-36min
+2013-11-25 14:37:25 DEBUG myLog:109 - Could not read specified key from the config.properties file <Usernam>
+2013-11-25 14:37:25 INFO  myLog:60 - Successfully read from OR.properties file <name>
+2013-11-25 14:37:25 DEBUG myLog:126 - Inessa
+2013-11-25 14:37:25 DEBUG myLog:127 - 
+2013-11-25 14:39:05 DEBUG myLogger:109 - Could not read specified key from the config.properties file <environment >
+2013-11-25 14:39:05 INFO  myLogger:103 - Successfully read from config.properties file <environment>
+2013-11-25 14:39:05 INFO  myLogger:47 - Environement Production
+2013-11-25 14:39:05 INFO  myLogger:103 - Successfully read from config.properties file <release>
+2013-11-25 14:39:05 INFO  myLogger:103 - Successfully read from config.properties file <release>
+2013-11-25 14:39:05 INFO  myLogger:51 - release Nov22
+2013-11-25 14:39:05 INFO  myLogger:52 - folder that contains reports: Reports_2013-Nov-25-14hr-39min
+2013-11-25 15:30:59 INFO  myLogger:96 - Successfully read from config.properties file <environment>
+2013-11-25 15:30:59 INFO  myLogger:96 - Successfully read from config.properties file <release>
+2013-11-25 15:30:59 INFO  myLogger:53 - folder that contains reports: Reports_2013-Nov-25-15hr-30min
+2013-11-25 15:34:36 INFO  myLogger:96 - Successfully read from config.properties file <environment>
+2013-11-25 15:34:36 INFO  myLogger:96 - Successfully read from config.properties file <environment>
+2013-11-25 15:34:36 INFO  myLogger:48 - Environement value is Production
+2013-11-25 15:34:36 INFO  myLogger:96 - Successfully read from config.properties file <release>
+2013-11-25 15:34:36 INFO  myLogger:96 - Successfully read from config.properties file <release>
+2013-11-25 15:34:36 INFO  myLogger:52 - release value is Nov22
+2013-11-25 15:34:36 INFO  myLogger:53 - folder that contains reports: Reports_2013-Nov-25-15hr-34min
+2013-11-25 15:35:43 INFO  myLogger:96 - Successfully read from config.properties file <environment>
+2013-11-25 15:35:43 INFO  myLogger:48 - Environement value is Production
+2013-11-25 15:35:43 INFO  myLogger:96 - Successfully read from config.properties file <release>
+2013-11-25 15:35:43 INFO  myLogger:96 - Successfully read from config.properties file <release>
+2013-11-25 15:35:43 INFO  myLogger:52 - release value is Nov22
+2013-11-25 15:35:43 INFO  myLogger:53 - folder that contains reports: Reports_2013-Nov-25-15hr-35min
+2013-11-25 15:37:38 INFO  myLogger:96 - Successfully read from config.properties file <environment>
+2013-11-25 15:37:38 INFO  myLogger:47 - Environement value is Production
+2013-11-25 15:37:38 INFO  myLogger:96 - Successfully read from config.properties file <release>
+2013-11-25 15:37:38 INFO  myLogger:50 - release value is Nov22
+2013-11-25 15:37:38 INFO  myLogger:52 - folder that contains reports: Reports_2013-Nov-25-15hr-37min
+2013-11-25 17:29:01 DEBUG ThreadSafeClientConnManager:239 - Get connection: {}->http://127.0.0.1:7055, timeout = 120000
+2013-11-25 17:29:01 DEBUG ConnPoolByRoute:349 - [{}->http://127.0.0.1:7055] total kept alive: 0, total issued: 0, total allocated: 0 out of 2000
+2013-11-25 17:29:01 DEBUG ConnPoolByRoute:523 - No free connections [{}->http://127.0.0.1:7055][null]
+2013-11-25 17:29:01 DEBUG ConnPoolByRoute:368 - Available capacity: 2000 out of 2000 [{}->http://127.0.0.1:7055][null]
+2013-11-25 17:29:01 DEBUG ConnPoolByRoute:549 - Creating new connection [{}->http://127.0.0.1:7055]
+2013-11-25 17:29:01 DEBUG DefaultClientConnectionOperator:177 - Connecting to 127.0.0.1:7055
+2013-11-25 17:29:01 DEBUG RequestAddCookies:132 - CookieSpec selected: best-match
+2013-11-25 17:29:01 DEBUG RequestAuthCache:78 - Auth cache not set in the context
+2013-11-25 17:29:01 DEBUG RequestTargetAuthentication:78 - Target auth state: UNCHALLENGED
+2013-11-25 17:29:01 DEBUG RequestProxyAuthentication:87 - Proxy auth state: UNCHALLENGED
+2013-11-25 17:29:01 DEBUG DefaultHttpClient:710 - Attempt 1 to execute request
+2013-11-25 17:29:01 DEBUG DefaultClientConnection:269 - Sending request: POST /hub/session HTTP/1.1
+2013-11-25 17:29:01 DEBUG wire:63 - >> "POST /hub/session HTTP/1.1[\r][\n]"
+2013-11-25 17:29:01 DEBUG wire:63 - >> "Accept: application/json, image/png[\r][\n]"
+2013-11-25 17:29:01 DEBUG wire:63 - >> "Content-Type: application/json; charset=utf-8[\r][\n]"
+2013-11-25 17:29:01 DEBUG wire:63 - >> "Content-Length: 105[\r][\n]"
+2013-11-25 17:29:01 DEBUG wire:63 - >> "Host: 127.0.0.1:7055[\r][\n]"
+2013-11-25 17:29:01 DEBUG wire:63 - >> "Connection: Keep-Alive[\r][\n]"
+2013-11-25 17:29:01 DEBUG wire:63 - >> "[\r][\n]"
+2013-11-25 17:29:01 DEBUG headers:273 - >> POST /hub/session HTTP/1.1
+2013-11-25 17:29:01 DEBUG headers:276 - >> Accept: application/json, image/png
+2013-11-25 17:29:01 DEBUG headers:276 - >> Content-Type: application/json; charset=utf-8
+2013-11-25 17:29:01 DEBUG headers:276 - >> Content-Length: 105
+2013-11-25 17:29:01 DEBUG headers:276 - >> Host: 127.0.0.1:7055
+2013-11-25 17:29:01 DEBUG headers:276 - >> Connection: Keep-Alive
+2013-11-25 17:29:01 DEBUG wire:77 - >> "{"desiredCapabilities":{"platform":"ANY","browserName":"firefox","version":""},"requiredCapabilities":{}}"
+2013-11-25 17:29:01 DEBUG wire:63 - << "HTTP/1.1 303 See Other[\r][\n]"
+2013-11-25 17:29:01 DEBUG wire:63 - << "location: http://127.0.0.1:7055/hub/session/e8c090ed-1f91-c241-906e-2b036fa19634[\r][\n]"
+2013-11-25 17:29:01 DEBUG wire:63 - << "connection: close[\r][\n]"
+2013-11-25 17:29:01 DEBUG wire:63 - << "content-length: 0[\r][\n]"
+2013-11-25 17:29:01 DEBUG wire:63 - << "server: httpd.js[\r][\n]"
+2013-11-25 17:29:01 DEBUG wire:63 - << "date: Tue, 26 Nov 2013 01:29:01 GMT[\r][\n]"
+2013-11-25 17:29:01 DEBUG wire:63 - << "[\r][\n]"
+2013-11-25 17:29:01 DEBUG DefaultClientConnection:254 - Receiving response: HTTP/1.1 303 See Other
+2013-11-25 17:29:01 DEBUG headers:257 - << HTTP/1.1 303 See Other
+2013-11-25 17:29:01 DEBUG headers:260 - << location: http://127.0.0.1:7055/hub/session/e8c090ed-1f91-c241-906e-2b036fa19634
+2013-11-25 17:29:01 DEBUG headers:260 - << connection: close
+2013-11-25 17:29:01 DEBUG headers:260 - << content-length: 0
+2013-11-25 17:29:01 DEBUG headers:260 - << server: httpd.js
+2013-11-25 17:29:01 DEBUG headers:260 - << date: Tue, 26 Nov 2013 01:29:01 GMT
+2013-11-25 17:29:01 DEBUG DefaultRedirectStrategy:137 - Redirect requested to location 'http://127.0.0.1:7055/hub/session/e8c090ed-1f91-c241-906e-2b036fa19634'
+2013-11-25 17:29:01 DEBUG DefaultHttpClient:1100 - Redirecting to 'http://127.0.0.1:7055/hub/session/e8c090ed-1f91-c241-906e-2b036fa19634' via {}->http://127.0.0.1:7055
+2013-11-25 17:29:01 DEBUG DefaultClientConnection:169 - Connection 0.0.0.0:64652<->127.0.0.1:7055 closed
+2013-11-25 17:29:01 DEBUG DefaultClientConnectionOperator:177 - Connecting to 127.0.0.1:7055
+2013-11-25 17:29:01 DEBUG RequestAddCookies:132 - CookieSpec selected: best-match
+2013-11-25 17:29:01 DEBUG RequestAuthCache:78 - Auth cache not set in the context
+2013-11-25 17:29:01 DEBUG RequestTargetAuthentication:78 - Target auth state: UNCHALLENGED
+2013-11-25 17:29:01 DEBUG RequestProxyAuthentication:87 - Proxy auth state: UNCHALLENGED
+2013-11-25 17:29:01 DEBUG DefaultHttpClient:710 - Attempt 2 to execute request
+2013-11-25 17:29:01 DEBUG DefaultClientConnection:269 - Sending request: GET /hub/session/e8c090ed-1f91-c241-906e-2b036fa19634 HTTP/1.1
+2013-11-25 17:29:01 DEBUG wire:63 - >> "GET /hub/session/e8c090ed-1f91-c241-906e-2b036fa19634 HTTP/1.1[\r][\n]"
+2013-11-25 17:29:01 DEBUG wire:63 - >> "Accept: application/json, image/png[\r][\n]"
+2013-11-25 17:29:01 DEBUG wire:63 - >> "Content-Type: application/json; charset=utf-8[\r][\n]"
+2013-11-25 17:29:01 DEBUG wire:63 - >> "Host: 127.0.0.1:7055[\r][\n]"
+2013-11-25 17:29:01 DEBUG wire:63 - >> "Connection: Keep-Alive[\r][\n]"
+2013-11-25 17:29:01 DEBUG wire:63 - >> "[\r][\n]"
+2013-11-25 17:29:01 DEBUG headers:273 - >> GET /hub/session/e8c090ed-1f91-c241-906e-2b036fa19634 HTTP/1.1
+2013-11-25 17:29:01 DEBUG headers:276 - >> Accept: application/json, image/png
+2013-11-25 17:29:01 DEBUG headers:276 - >> Content-Type: application/json; charset=utf-8
+2013-11-25 17:29:01 DEBUG headers:276 - >> Host: 127.0.0.1:7055
+2013-11-25 17:29:01 DEBUG headers:276 - >> Connection: Keep-Alive
+2013-11-25 17:29:01 DEBUG wire:63 - << "HTTP/1.1 200 OK[\r][\n]"
+2013-11-25 17:29:01 DEBUG wire:63 - << "content-type: application/json; charset=UTF-8[\r][\n]"
+2013-11-25 17:29:01 DEBUG wire:63 - << "connection: close[\r][\n]"
+2013-11-25 17:29:01 DEBUG wire:63 - << "content-length: 464[\r][\n]"
+2013-11-25 17:29:01 DEBUG wire:63 - << "server: httpd.js[\r][\n]"
+2013-11-25 17:29:01 DEBUG wire:63 - << "date: Tue, 26 Nov 2013 01:29:01 GMT[\r][\n]"
+2013-11-25 17:29:01 DEBUG wire:63 - << "[\r][\n]"
+2013-11-25 17:29:01 DEBUG DefaultClientConnection:254 - Receiving response: HTTP/1.1 200 OK
+2013-11-25 17:29:01 DEBUG headers:257 - << HTTP/1.1 200 OK
+2013-11-25 17:29:01 DEBUG headers:260 - << content-type: application/json; charset=UTF-8
+2013-11-25 17:29:01 DEBUG headers:260 - << connection: close
+2013-11-25 17:29:01 DEBUG headers:260 - << content-length: 464
+2013-11-25 17:29:01 DEBUG headers:260 - << server: httpd.js
+2013-11-25 17:29:01 DEBUG headers:260 - << date: Tue, 26 Nov 2013 01:29:01 GMT
+2013-11-25 17:29:01 DEBUG wire:77 - << "{"name":"getSessionCapabilities","sessionId":"e8c090ed-1f91-c241-906e-2b036fa19634","status":0,"value":{"cssSelectorsEnabled":true,"browserName":"firefox","handlesAlerts":true,"javascriptEnabled":true,"nativeEvents":false,"platform":"Darwin","rotatable":false,"takesScreenshot":true,"version":"24.0","webStorageEnabled":true,"applicationCacheEnabled":true,"databaseEnabled":true,"locationContextEnabled":true,"browserConnectionEnabled":true,"acceptSslCerts":true}}"
+2013-11-25 17:29:01 DEBUG DefaultClientConnection:154 - Connection 0.0.0.0:64653<->127.0.0.1:7055 shut down
+2013-11-25 17:29:01 DEBUG ThreadSafeClientConnManager:290 - Released connection is not reusable.
+2013-11-25 17:29:01 DEBUG ConnPoolByRoute:433 - Releasing connection [{}->http://127.0.0.1:7055][null]
+2013-11-25 17:29:01 DEBUG DefaultClientConnection:169 - Connection 0.0.0.0:64653<->127.0.0.1:7055 closed
+2013-11-25 17:29:01 DEBUG ConnPoolByRoute:679 - Notifying no-one, there are no waiting threads
+2013-11-25 17:29:01 INFO  myLogger:96 - Successfully read from config.properties file <nau_baseUrl>
+2013-11-25 17:29:01 DEBUG ThreadSafeClientConnManager:239 - Get connection: {}->http://127.0.0.1:7055, timeout = 120000
+2013-11-25 17:29:01 DEBUG ConnPoolByRoute:349 - [{}->http://127.0.0.1:7055] total kept alive: 0, total issued: 0, total allocated: 0 out of 2000
+2013-11-25 17:29:01 DEBUG ConnPoolByRoute:523 - No free connections [{}->http://127.0.0.1:7055][null]
+2013-11-25 17:29:01 DEBUG ConnPoolByRoute:368 - Available capacity: 2000 out of 2000 [{}->http://127.0.0.1:7055][null]
+2013-11-25 17:29:01 DEBUG ConnPoolByRoute:549 - Creating new connection [{}->http://127.0.0.1:7055]
+2013-11-25 17:29:01 DEBUG DefaultClientConnectionOperator:177 - Connecting to 127.0.0.1:7055
+2013-11-25 17:29:01 DEBUG RequestAddCookies:132 - CookieSpec selected: best-match
+2013-11-25 17:29:01 DEBUG RequestAuthCache:78 - Auth cache not set in the context
+2013-11-25 17:29:01 DEBUG RequestTargetAuthentication:78 - Target auth state: UNCHALLENGED
+2013-11-25 17:29:01 DEBUG RequestProxyAuthentication:87 - Proxy auth state: UNCHALLENGED
+2013-11-25 17:29:01 DEBUG DefaultHttpClient:710 - Attempt 1 to execute request
+2013-11-25 17:29:01 DEBUG DefaultClientConnection:269 - Sending request: POST /hub/session/e8c090ed-1f91-c241-906e-2b036fa19634/url HTTP/1.1
+2013-11-25 17:29:01 DEBUG wire:63 - >> "POST /hub/session/e8c090ed-1f91-c241-906e-2b036fa19634/url HTTP/1.1[\r][\n]"
+2013-11-25 17:29:01 DEBUG wire:63 - >> "Accept: application/json, image/png[\r][\n]"
+2013-11-25 17:29:01 DEBUG wire:63 - >> "Content-Type: application/json; charset=utf-8[\r][\n]"
+2013-11-25 17:29:01 DEBUG wire:63 - >> "Content-Length: 33[\r][\n]"
+2013-11-25 17:29:01 DEBUG wire:63 - >> "Host: 127.0.0.1:7055[\r][\n]"
+2013-11-25 17:29:01 DEBUG wire:63 - >> "Connection: Keep-Alive[\r][\n]"
+2013-11-25 17:29:01 DEBUG wire:63 - >> "[\r][\n]"
+2013-11-25 17:29:01 DEBUG headers:273 - >> POST /hub/session/e8c090ed-1f91-c241-906e-2b036fa19634/url HTTP/1.1
+2013-11-25 17:29:01 DEBUG headers:276 - >> Accept: application/json, image/png
+2013-11-25 17:29:01 DEBUG headers:276 - >> Content-Type: application/json; charset=utf-8
+2013-11-25 17:29:01 DEBUG headers:276 - >> Content-Length: 33
+2013-11-25 17:29:01 DEBUG headers:276 - >> Host: 127.0.0.1:7055
+2013-11-25 17:29:01 DEBUG headers:276 - >> Connection: Keep-Alive
+2013-11-25 17:29:01 DEBUG wire:77 - >> "{"url":"http://www.nautica.com/"}"
+2013-11-25 17:29:13 DEBUG wire:63 - << "HTTP/1.1 200 OK[\r][\n]"
+2013-11-25 17:29:13 DEBUG wire:63 - << "content-type: application/json; charset=UTF-8[\r][\n]"
+2013-11-25 17:29:13 DEBUG wire:63 - << "connection: close[\r][\n]"
+2013-11-25 17:29:13 DEBUG wire:63 - << "content-length: 87[\r][\n]"
+2013-11-25 17:29:13 DEBUG wire:63 - << "server: httpd.js[\r][\n]"
+2013-11-25 17:29:13 DEBUG wire:63 - << "date: Tue, 26 Nov 2013 01:29:13 GMT[\r][\n]"
+2013-11-25 17:29:13 DEBUG wire:63 - << "[\r][\n]"
+2013-11-25 17:29:13 DEBUG DefaultClientConnection:254 - Receiving response: HTTP/1.1 200 OK
+2013-11-25 17:29:13 DEBUG headers:257 - << HTTP/1.1 200 OK
+2013-11-25 17:29:13 DEBUG headers:260 - << content-type: application/json; charset=UTF-8
+2013-11-25 17:29:13 DEBUG headers:260 - << connection: close
+2013-11-25 17:29:13 DEBUG headers:260 - << content-length: 87
+2013-11-25 17:29:13 DEBUG headers:260 - << server: httpd.js
+2013-11-25 17:29:13 DEBUG headers:260 - << date: Tue, 26 Nov 2013 01:29:13 GMT
+2013-11-25 17:29:13 DEBUG wire:77 - << "{"name":"get","sessionId":"e8c090ed-1f91-c241-906e-2b036fa19634","status":0,"value":""}"
+2013-11-25 17:29:13 DEBUG DefaultClientConnection:154 - Connection 0.0.0.0:64654<->127.0.0.1:7055 shut down
+2013-11-25 17:29:13 DEBUG ThreadSafeClientConnManager:290 - Released connection is not reusable.
+2013-11-25 17:29:13 DEBUG ConnPoolByRoute:433 - Releasing connection [{}->http://127.0.0.1:7055][null]
+2013-11-25 17:29:13 DEBUG DefaultClientConnection:169 - Connection 0.0.0.0:64654<->127.0.0.1:7055 closed
+2013-11-25 17:29:13 DEBUG ConnPoolByRoute:679 - Notifying no-one, there are no waiting threads
+2013-11-25 17:39:07 INFO  myLogger:26 - executing ReportUtil.java
+2013-11-25 17:39:07 INFO  myLogger:42 - This is folder name for results of running testReports_2013-Nov-25-17hr-39min
+2013-11-25 17:39:07 INFO  myLogger:96 - Successfully read from config.properties file <environment>
+2013-11-25 17:39:07 INFO  myLogger:56 - Environement value is Production
+2013-11-25 17:39:07 INFO  myLogger:96 - Successfully read from config.properties file <release>
+2013-11-25 17:39:07 INFO  myLogger:59 - release value is Nov22
+2013-11-25 17:39:07 INFO  myLogger:61 - folder that contains reports: Reports_2013-Nov-25-17hr-39min
+2013-11-25 17:40:53 INFO  myLogger:26 - executing ReportUtil.java
+2013-11-25 17:40:53 INFO  myLogger:42 - This is folder name for results of running testReports_2013-Nov-25-17hr-40min
+2013-11-25 17:40:53 INFO  myLogger:96 - Successfully read from config.properties file <environment>
+2013-11-25 17:40:53 INFO  myLogger:56 - Environement value is Production
+2013-11-25 17:40:53 INFO  myLogger:96 - Successfully read from config.properties file <release>
+2013-11-25 17:40:53 INFO  myLogger:59 - release value is Nov22
+2013-11-25 17:40:53 INFO  myLogger:61 - folder that contains reports: Reports_2013-Nov-25-17hr-40min
+2013-11-25 18:28:45 INFO  myLogger:26 - executing ReportUtil.java
+2013-11-25 18:28:45 INFO  myLogger:42 - This is folder name for results of running testReports_2013-Nov-25-18hr-28min.zip
+2013-11-25 18:28:45 INFO  myLogger:96 - Successfully read from config.properties file <environment>
+2013-11-25 18:28:45 INFO  myLogger:56 - Environement value is Production
+2013-11-25 18:28:45 INFO  myLogger:96 - Successfully read from config.properties file <release>
+2013-11-25 18:28:45 INFO  myLogger:59 - release value is Nov22
+2013-11-25 18:28:45 INFO  myLogger:61 - folder that contains reports: Reports_2013-Nov-25-18hr-28min.zip

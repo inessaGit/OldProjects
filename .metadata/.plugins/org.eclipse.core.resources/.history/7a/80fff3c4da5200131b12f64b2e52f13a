@@ -1,0 +1,397 @@
+package KiplingCommon;
+
+import static org.testng.AssertJUnit.assertEquals;
+import static org.testng.AssertJUnit.assertEquals;
+
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeMethod;
+import org.testng.AssertJUnit;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.regex.Pattern;
+import java.util.concurrent.TimeUnit;
+
+import static org.hamcrest.CoreMatchers.*;
+
+import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Reporter;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.AfterTest;
+
+public class KipCheckoutUSAMonogramWithCoupon {
+  private WebDriver driver;
+  private boolean acceptNextAlert = true;
+  private StringBuffer verificationErrors = new StringBuffer();
+  String apartment = "333A";
+  String freeMonogramCoupon= "SEWKIPLING";
+	 String discountAmountInCart;
+	 String discountAmountStep3;
+	 KipCommonMethods kp= new KipCommonMethods();
+	 
+	 String monogramItemBackpack = "100141530";
+	  WebDriverWait wait;
+
+
+@BeforeTest
+public void setUp() throws Exception {
+ driver = new FirefoxDriver();
+  
+	//File file=new File("/Users/igonzalez/Desktop/SELENIUM_jar/selenium/chromedriver");
+  //System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
+	//driver = new ChromeDriver();
+ String url=KipCommonMethods.getUrl("baseUrl");
+	driver.get(url);
+}
+
+  public static boolean waitToLoadElement(WebDriver driver, By by, int seconds) {
+      boolean found = true;
+
+      long bailOutPeriod = 1000 * seconds;
+      long lStartTime = new Date().getTime();
+
+      while (!isElementPresent(driver, by)) {
+          long lEndTime = new Date().getTime();
+          long difference = lEndTime - lStartTime;
+
+          if (difference < bailOutPeriod) {
+              pause(1);
+          }
+          else {
+              found = false;
+              break;
+          }
+      }
+      return found;
+  }
+  public static boolean isElementPresent(WebDriver driver, By by) {
+		try {
+			WebElement element = driver.findElement(by);
+			return element.isDisplayed();
+		} catch (NoSuchElementException e) {
+			return false;
+		}
+	}
+	
+	public static void pause(int milliseconds) {
+		try {
+			Thread.sleep(milliseconds);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void waitForPageLoaded(WebDriver driver) {
+
+		ExpectedCondition<Boolean> expectation = new ExpectedCondition<Boolean>() {
+			public Boolean apply(WebDriver driver) {
+				return ((JavascriptExecutor)driver).executeScript("return document.readyState").equals("complete");
+			}
+		};
+
+		Wait<WebDriver> wait = new WebDriverWait(driver,30);
+		try {
+			wait.until(expectation);
+		} catch(Throwable error) {
+			AssertJUnit.assertFalse("Timeout waiting for Page Load Request to complete.",true);
+		}
+	} 
+  @Test
+  public void testKipOrderSummaryMonogramCoupon()  {
+	  
+	 wait = new WebDriverWait(driver, 45);
+	      
+	  KipCommonMethods.searchForMonogram(driver, monogramItemBackpack); //method is not working?? need to debug??
+	//wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("div.product-number")));//this wait for presence of  PDP item number 
+
+    KipCommonMethods.PDPswatchColor(driver);//MODIFIABLE
+    
+    KipCommonMethods.takeScreenshot(driver);
+
+    KipCommonMethods.PDPquantity(driver);//MODIFIABLE
+    KipCommonMethods.takeScreenshot(driver);
+    KipCommonMethods.writeRewiewOnPDP(driver);
+    
+
+	   Actions action = new Actions(driver);
+
+    //here is the code for adding monogram to cart starts
+    driver.findElement(By.xpath("//div[@id='stickvogel-content']/a")).click();
+    
+    wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("fancybox-frame"));
+  //this is a frame name fancybox-frame??
+    KipCommonMethods.takeScreenshot(driver);
+
+    //in the frame button 'add to cart' for monogram xpath .//*[@id='tab-customize']/div[3]/button[3]
+    driver.findElement(By.xpath(".//*[@id='tab-customize']/div[3]/button[3]")).click();
+    
+    wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//li[@id='mini-cart']/a")));//this is mini-cart to be clickable
+    
+driver.switchTo().defaultContent()  ;//need to switch back to main window
+    
+    //driver.findElement(By.id("add-to-cart")).click(); // ONLY IF I WANT TO ADD TO CART ITEM WITHOUT MONOGRAM ALONG WITH MONOGRAM
+    driver.findElement(By.xpath("//li[@id='mini-cart']/a")).click();
+    KipCommonMethods.takeScreenshot(driver);
+    
+    //THIS IS CODE FOR COUPON
+    WebElement couponField = driver.findElement(By.id("dwfrm_cart_couponCode"));
+    couponField.clear();
+    couponField.sendKeys(freeMonogramCoupon);
+    WebElement couponBtn = driver.findElement(By.id("add-coupon"));
+    couponBtn.click();
+        
+    //.//*[@id='primary']/div[4]/table/tbody/tr[2]/td[2]     //div[4]/table/tbody/tr[2]/td[2]
+   // wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[4]/table/tbody/tr[2]/td[2]")));
+    //this is code for verifying order discount in CART 
+  boolean orderDiscountInCartDisplayed=  driver.findElement(By.className("totLabel")).isDisplayed();
+  if(orderDiscountInCartDisplayed==true)
+  {
+	  //amount of order discount in CART
+	  discountAmountInCart = driver.findElement(By.cssSelector("tr.order-discount.discount td:nth-child(2)")).getText().trim();
+	  
+	// discountAmountInCart= driver.findElement(By.cssSelector("tr.order-discount.discount > td.totLabel")).getText().trim(); // this is for Text ORDER DISCOUNT not for the amount
+    Reporter.log("Coupon applied. "+" Discount amount in 'Cart' is " +discountAmountInCart+ "Went to '"+driver.getTitle()+" ' page");
+    KipCommonMethods.takeScreenshot(driver);
+  }
+    driver.findElement(By.xpath("//button[@name='dwfrm_cart_checkoutCart']")).click();
+    KipCommonMethods.takeScreenshot(driver);
+
+    driver.findElement(By.name("dwfrm_login_unregistered")).click();
+
+    driver.findElement(By.id("dwfrm_singleshipping_shippingAddress_addressFields_firstName")).clear();
+    driver.findElement(By.id("dwfrm_singleshipping_shippingAddress_addressFields_firstName")).sendKeys("ines");
+    driver.findElement(By.id("dwfrm_singleshipping_shippingAddress_addressFields_lastName")).clear();
+    driver.findElement(By.id("dwfrm_singleshipping_shippingAddress_addressFields_lastName")).sendKeys("g");
+    driver.findElement(By.id("dwfrm_singleshipping_shippingAddress_addressFields_address1")).clear();
+    driver.findElement(By.id("dwfrm_singleshipping_shippingAddress_addressFields_address1")).sendKeys("5010 haven pl");
+    WebElement apartmentElement =driver.findElement(By.id("dwfrm_singleshipping_shippingAddress_addressFields_address2"));
+    apartmentElement.clear();
+    apartmentElement.sendKeys(apartment);
+    driver.findElement(By.id("dwfrm_singleshipping_shippingAddress_addressFields_city")).clear();
+    driver.findElement(By.id("dwfrm_singleshipping_shippingAddress_addressFields_city")).sendKeys("dubli");
+    
+    
+    Select selectState= new Select(driver.findElement(By.id("dwfrm_singleshipping_shippingAddress_addressFields_states_state")));
+    List<WebElement>allStates=selectState.getOptions();
+    List<String> states= new ArrayList<String>();
+    for(WebElement state: allStates)
+    {
+       String stateOption = state.getAttribute("innerHTML").trim();
+       
+       //Reporter.log("This are the states in the state drop down: "+ stateOption);
+          System.out.println ("This are the states in the state drop down: "+ stateOption);
+         
+    }
+    
+    //driver.findElement(By.cssSelector("div b")).click();//this is country toggle
+
+   // WebElement countrytDropDown = driver.findElement(By.xpath("html/body/div[8]/ul/li[2]/div"));//this is state drop down /or country because div[8] is for both
+    //action.moveToElement(countrytDropDown).click().build().perform();
+    
+   driver.findElement(By.cssSelector("a.select2-choice.select2-default > div > b")).click();//THIS IS STATE toggle
+   
+   
+   boolean stagingTrue = driver.getCurrentUrl().contains("staging");
+System.out.println(stagingTrue);
+   boolean devTrue = driver.getCurrentUrl().contains("development");
+
+   
+   if(stagingTrue=true|| devTrue)
+   {
+	   WebElement stateDropDown = driver.findElement(By.xpath("//div[96]/ul/li[6]/div "));//STAGING XPATH
+	    action.moveToElement(stateDropDown).click().build().perform();
+
+   }
+   
+   else if (stagingTrue!=true)
+   {
+	    WebElement stateDropDown = driver.findElement(By.xpath("html/body/div[8]/ul/li[6]/div"));//production this is state drop down /or country because div[8] is for both
+	    action.moveToElement(stateDropDown).click().build().perform();
+
+   }
+    //waitToLoadElement (driver, By.xpath(".//*[@id='s2id_dwfrm_singleshipping_shippingAddress_addressFields_country']/a/span"), 5);//BECAUSE country defines 'State'/'Province'/State_Province
+   
+    
+    driver.findElement(By.id("dwfrm_singleshipping_shippingAddress_addressFields_zip")).clear();
+    driver.findElement(By.id("dwfrm_singleshipping_shippingAddress_addressFields_zip")).sendKeys("94568");
+    
+   // String stateOrProvince= driver.findElement(By.xpath(".//*[@id='dwfrm_singleshipping_shippingAddress']/fieldset/div[4]/div[3]/label/span")).getAttribute("innerHTML").trim();
+    //System.out.println("After selecting country - " + stateOrProvince);
+   
+    driver.findElement(By.id("dwfrm_singleshipping_shippingAddress_addressFields_phone")).clear();
+    driver.findElement(By.id("dwfrm_singleshipping_shippingAddress_addressFields_phone")).sendKeys("9255443344");
+    //driver.findElement(By.id("shipping-method-2day_48_contiguous_states")).click();
+   // driver.findElement(By.xpath("//div[@id='shipping-method-list']/fieldset/div/label")).click();
+  
+    try {
+        AssertJUnit.assertEquals("State", driver.findElement(By.xpath("//form[@id='dwfrm_singleshipping_shippingAddress']/fieldset/div[4]/div[2]/label/span")).getText());
+      } catch (Error e) {
+        verificationErrors.append(e.toString());
+      }
+   wait= new WebDriverWait( driver, 45);
+
+    KipCommonMethods.takeScreenshot(driver);
+
+    WebElement continueStep1 =driver.findElement(By.name("dwfrm_singleshipping_shippingAddress_save"));//continueStep1.
+    continueStep1.click();//CONTINUE BUTTON
+    
+    /*
+    xpath for 1st suggestion
+    /html/body/div/div[2]/div/form/div[2]/table/tbody/tr[2]/td/input
+
+    xpath for 2nd suggestion
+    /html/body/div/div[2]/div/form/div[2]/table/tbody/tr[3]/td/input
+     
+     */
+    WebElement addressOption2 = driver.findElement(By.xpath("/html/body/div/div[2]/div/form/div[2]/table/tbody/tr[3]/td/input"));
+    addressOption2.click();
+    //driver.findElement(By.name("dwfrm_singleshipping_shippingAddress_save")).click();
+
+
+
+   //waitToLoadElement(driver, By.xpath(".//*[@id='dwfrm_billing']/fieldset[1]/legend"), 5);
+    //driver.findElement(By.id("toggleShippingAddress")).click();
+    //driver.findElement(By.id("useShipping")).click();
+  //  driver.findElement(By.id("toggleShippingAddress")).click();
+   // driver.findElement(By.id("useShipping")).click();
+   WebElement emailField = driver.findElement(By.id("dwfrm_billing_billingAddress_email_emailAddress"));
+   action.moveToElement(emailField).click().build().perform();
+   emailField.clear();
+  emailField.sendKeys("software_test22@hotmail.com");
+  
+//driver.findElement(By.id("dwfrm_billing_billingAddress_addToEmailList")).click(); //not visible because it is input need to be label
+
+  driver.findElement(By.xpath("//form[@id='dwfrm_billing']/fieldset/div[8]/div[2]/label")).click();// this is to uncheck add me to email list
+
+      
+    driver.findElement(By.xpath("//div[@id='s2id_dwfrm_billing_paymentMethods_creditCard_type']/a/div/b")).click();//credit card type toggle
+    WebElement cardType = driver.findElement(By.xpath("html/body/div[8]/ul/li[2]/div")); //Visa
+    action.moveToElement(cardType).click().build().perform();
+    
+    
+    driver.findElement(By.xpath(".//*[@id='s2id_dwfrm_billing_paymentMethods_creditCard_month']/a/div/b")).click();//credit card month toggle
+    WebElement cardMonth=driver.findElement(By.xpath("html/body/div[8]/ul/li[4]/div"));
+    action.moveToElement(cardMonth).click().build().perform();
+    
+    driver.findElement(By.xpath(".//*[@id='s2id_dwfrm_billing_paymentMethods_creditCard_year']/a/div/b")).click();//credit card year toggle
+    WebElement cardYear = driver.findElement(By.xpath("html/body/div[8]/ul/li[6]/div"));
+    action.moveToElement(cardYear).click().build().perform();
+    
+    driver.findElement(By.id("dwfrm_billing_paymentMethods_creditCard_owner")).clear();
+    driver.findElement(By.id("dwfrm_billing_paymentMethods_creditCard_owner")).sendKeys("ines");
+    driver.findElement(By.id("dwfrm_billing_paymentMethods_creditCard_number")).clear();
+    driver.findElement(By.id("dwfrm_billing_paymentMethods_creditCard_number")).sendKeys("4111111111111111");
+    driver.findElement(By.id("dwfrm_billing_paymentMethods_creditCard_cvn")).clear();
+    driver.findElement(By.id("dwfrm_billing_paymentMethods_creditCard_cvn")).sendKeys("111");
+    KipCommonMethods.takeScreenshot(driver);
+
+   
+    
+    driver.findElement(By.cssSelector("button[name=\"dwfrm_billing_save\"]")).click();// continue button on Step2  Billing page
+    wait.until(ExpectedConditions.presenceOfElementLocated(By.className("order-summary-title")));
+    
+    String step3Url= driver.getCurrentUrl();
+    System.out.println("After click on 'Continue' button on 'Step2: Billing' got redirected to " + step3Url);
+    Reporter.log("After click on 'Continue' button on 'Step2: Billing' got redirected to " + step3Url);
+    
+    //.//*[@id='cart-order-summary']/h2
+    try {
+    	Reporter.log("On Step3 page "+ driver.findElement(By.cssSelector("tr.order-total > td.totLabel")).getText()+" is visible");
+    	System.out.println("On Step3 page element "+ driver.findElement(By.cssSelector("tr.order-total > td.totLabel")).getText()+" is visible");
+    	
+      AssertJUnit.assertEquals("Order Total:", driver.findElement(By.cssSelector("tr.order-total > td.totLabel")).getText());
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    try {
+    	Reporter.log ("Currently on " + (driver.findElement(By.xpath(".//*[@id='cart-order-summary']/h2")).getText())+ "page");
+      AssertJUnit.assertTrue(isElementPresent(driver, By.xpath("//div[@id='primary']/div[2]/div/table/tbody/tr[5]/td[2]")));
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    
+  //xpath for order discount amount  in Step 3 Place and Order 
+  //.//*[@id='primary']/div[2]/div/table/tbody/tr[2]/td[2]
+
+    discountAmountStep3= driver.findElement(By.xpath(".//*[@id='primary']/div[2]/div/table/tbody/tr[2]/td[2]")).getText();
+    Reporter.log("Discount amount in 'Step3: Place an Order' is " +discountAmountStep3);
+    AssertJUnit.assertEquals(discountAmountInCart, discountAmountStep3);
+    
+    driver.findElement(By.name("submit")).click();//Step 3 PlACE ORDER - SUBMIT BUTTON 
+    
+    KipCommonMethods.defaultWindowSize(driver);
+    AssertJUnit.assertEquals("Checkout Confirmation", driver.getTitle());
+    System.out.println("On Checkout Confirmation page -page title is "+ driver.getTitle());
+    Reporter.log("On Checkout Confirmation page -page title is "+ driver.getTitle());
+    KipCommonMethods.takeScreenshot(driver);
+
+  //order confirmation page order number
+
+    String orderNumber = driver.findElement(By.xpath(".//*[@id='primary']/div[2]/table[1]/tbody/tr[2]/td[1]/div[2]/span[2]")).getText();
+    Reporter.log("On 'Order Confirmation' page order number is " + orderNumber);
+System.out.println("On 'Order Confirmation' page order number is " + orderNumber);
+try {
+	KipCommonMethods.sendOrderNumToFile(driver,orderNumber);
+} catch (IOException e1) {
+	// TODO Auto-generated catch block
+	e1.printStackTrace();
+}
+
+
+    //order confirmation order total 
+   // String orderTotal = driver.findElement(By.xpath(".//*[@id='primary']/div[2]/table[1]/tbody/tr[2]/td[4]/div/table/tbody/tr[6]/td[2]")).getText();
+
+String orderTotal = driver.findElement(By.cssSelector("tr.order-total td:nth-child(2)")).getText();
+
+    Reporter.log("On 'Order Confirmation' page order total is "+ orderTotal);
+System.out.println("On 'Order Confirmation' page order total is "+ orderTotal);
+
+    //order confirmation sales tax
+    String orderTax = driver.findElement(By.cssSelector("tr.order-sales-tax td:nth-child(2)")).getText();
+    Reporter.log("On 'Order Confrimation' page sales tax is "+ orderTax);
+System.out.println("On 'Order Confrimation' page sales tax is "+ orderTax);
+
+//order confirmation page subtotal
+
+String subtotal = driver.findElement(By.xpath(".//*[@id='primary']/div[2]/table[1]/tbody/tr[2]/td[4]/div/table/tbody/tr[1]/td[2]")).getText();
+Reporter.log("On 'Order Confirmation' page subtotal is "+ subtotal);
+System.out.println("On 'Order Confirmation' page subtotal is "+ subtotal);
+
+//order confirmation page shippingPrice
+String shippingPrice = driver.findElement(By.xpath(".//*[@id='primary']/div[2]/table[1]/tbody/tr[2]/td[4]/div/table/tbody/tr[2]/td[2]")).getText();
+Reporter.log("On 'Order Confirmation' page shipping price is "+ shippingPrice);
+System.out.println("On 'Order Confirmation' page shipping price is "+ shippingPrice);
+
+//order confirmation page address
+String address= driver.findElement(By.cssSelector("address")).getText();
+Reporter.log("On 'Order Confirmation' page address is " +address);
+System.out.println("On 'Order Confirmation' page address is " +address);
+
+   //order confirmation page shipping method 
+    try {
+      AssertJUnit.assertEquals("Shipping Ground", driver.findElement(By.cssSelector("tr.order-shipping > td.totLabel")).getText());
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+  }
+  
+  //order confirmation need to assert discount line
+
+  @AfterTest
+  public void endTest()
+  {
+  	//driver.quit();
+
+  }
+}

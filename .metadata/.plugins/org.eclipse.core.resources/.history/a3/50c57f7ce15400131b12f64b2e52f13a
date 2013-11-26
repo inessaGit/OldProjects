@@ -1,0 +1,183 @@
+
+
+import java.util.regex.Pattern;
+import java.util.concurrent.TimeUnit;
+
+import org.junit.*;
+
+import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.*;
+
+import org.openqa.selenium.*;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Test;
+
+import KiplingTest.KipCommonMethods;
+
+public class CheckoutUSA {
+  private WebDriver driver;
+  private String baseUrl;
+  private boolean acceptNextAlert = true;
+  private StringBuffer verificationErrors = new StringBuffer();
+  
+  WebDriverWait wait;
+
+  @BeforeSuite
+  public void setUp() throws Exception {
+    driver = new FirefoxDriver();
+    String url=KipCommonMethods.getUrl("baseUrl");
+	driver.get(url);
+driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+  }
+
+  @Test (priority=1)
+  public void testCheckoutUSA() throws Exception {
+	
+
+			Actions action = new Actions(driver);
+			action.moveToElement(driver.findElement(By.id("nav-handbags"))).build().perform();
+
+
+			driver.findElement(By.cssSelector("#handbags-new > span")).click();
+			driver.findElement(By.xpath("//li[2]/div/div/a/img")).click();// li is image number in grid
+			driver.findElement(By.id("add-to-cart")).click();
+
+		}
+
+		@Test (priority=2)
+		public void testCartPage()
+		{
+			driver.findElement(By.xpath("//li[@id='mini-cart']/a")).click();
+			KipCommonMethods.takeScreenshot(driver);
+		}
+		
+		@Test (priority=3)
+		public void testcheckoutInterceptPage()
+		{
+			driver.findElement(By.xpath("//button[@name='dwfrm_cart_checkoutCart']")).click();
+			KipCommonMethods.takeScreenshot(driver);
+
+			driver.findElement(By.name("dwfrm_login_unregistered")).click();
+
+		}
+		@Test (priority=4)
+		public void changeCountry()
+		{
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("dwfrm_singleshipping_shippingAddress_addressFields_firstName")));
+
+		WebElement divCountry=	driver.findElement(By.cssSelector("div#s2id_dwfrm_singleshipping_shippingAddress_addressFields_country"));//div for country
+		Actions action=new Actions(driver);
+		action.moveToElement(divCountry).build().perform();
+		driver.findElement(By.cssSelector("a.select2-choice div b")).click();//toggle for country 
+		    WebElement el = driver.findElement(By.cssSelector("ul.select2-result :nth-child(6)")); //this is locator for 6th country in the drop down
+
+
+		    		//inside of li div inside of div span contains country name
+		    		WebElement country = el.findElement(By.tagName("div"));
+		    		country.click(); 
+		}
+@Test (priority=4)
+public void checkout()
+{
+    driver.findElement(By.name("dwfrm_login_unregistered")).click();
+    driver.findElement(By.id("dwfrm_singleshipping_shippingAddress_addressFields_firstName")).clear();
+    driver.findElement(By.id("dwfrm_singleshipping_shippingAddress_addressFields_firstName")).sendKeys("i");
+    driver.findElement(By.id("dwfrm_singleshipping_shippingAddress_addressFields_lastName")).clear();
+    driver.findElement(By.id("dwfrm_singleshipping_shippingAddress_addressFields_lastName")).sendKeys("g");
+    driver.findElement(By.id("dwfrm_singleshipping_shippingAddress_addressFields_address1")).clear();
+    driver.findElement(By.id("dwfrm_singleshipping_shippingAddress_addressFields_address1")).sendKeys("5010 haven pl");
+    
+    		driver.findElement(By.id("dwfrm_singleshipping_shippingAddress_addressFields_city")).clear();
+    driver.findElement(By.id("dwfrm_singleshipping_shippingAddress_addressFields_city")).sendKeys("dublin");
+    driver.findElement(By.id("dwfrm_singleshipping_shippingAddress_addressFields_zip")).clear();
+    driver.findElement(By.id("dwfrm_singleshipping_shippingAddress_addressFields_zip")).sendKeys("94568");
+    driver.findElement(By.id("shipping-method-ground_48_contiguous_states")).click();
+    driver.findElement(By.id("shipping-method-2day_48_contiguous_states")).click();
+    driver.findElement(By.xpath("//div[@id='shipping-method-list']/fieldset/div/label")).click();
+    driver.findElement(By.id("shipping-method-2day_48_contiguous_states")).click();
+    driver.findElement(By.id("shipping-method-ground_48_contiguous_states")).click();
+    driver.findElement(By.xpath("//div[@id='shipping-method-list']/fieldset/div[3]/label")).click();
+    driver.findElement(By.name("dwfrm_singleshipping_shippingAddress_save")).click();
+    try {
+      assertEquals("Please enter a Telephone Number", driver.findElement(By.xpath("//form[@id='dwfrm_singleshipping_shippingAddress']/fieldset/div[5]/div/span[2]")).getText());
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    driver.findElement(By.id("dwfrm_singleshipping_shippingAddress_addressFields_phone")).clear();
+    driver.findElement(By.id("dwfrm_singleshipping_shippingAddress_addressFields_phone")).sendKeys("9256667788");
+    driver.findElement(By.name("dwfrm_singleshipping_shippingAddress_save")).click();
+    driver.findElement(By.id("dwfrm_billing_billingAddress_addToEmailList")).click();
+    driver.findElement(By.xpath("//form[@id='dwfrm_billing']/fieldset/div[7]/div[2]/label")).click();
+    driver.findElement(By.cssSelector("#s2id_dwfrm_billing_paymentMethods_creditCard_year > a.select2-choice > span")).click();
+    driver.findElement(By.cssSelector("#s2id_dwfrm_billing_paymentMethods_creditCard_type > a.select2-choice > span")).click();
+    driver.findElement(By.id("dwfrm_billing_paymentMethods_creditCard_owner")).clear();
+    driver.findElement(By.id("dwfrm_billing_paymentMethods_creditCard_owner")).sendKeys("i");
+    driver.findElement(By.id("dwfrm_billing_paymentMethods_creditCard_number")).clear();
+    driver.findElement(By.id("dwfrm_billing_paymentMethods_creditCard_number")).sendKeys("4111111111111111");
+    driver.findElement(By.id("dwfrm_billing_paymentMethods_creditCard_cvn")).clear();
+    driver.findElement(By.id("dwfrm_billing_paymentMethods_creditCard_cvn")).sendKeys("111");
+    driver.findElement(By.cssSelector("button[name=\"dwfrm_billing_save\"]")).click();
+    driver.findElement(By.id("dwfrm_billing_billingAddress_email_emailAddress")).clear();
+    driver.findElement(By.id("dwfrm_billing_billingAddress_email_emailAddress")).sendKeys("software-test22@hotmail.com");
+    driver.findElement(By.cssSelector("button[name=\"dwfrm_billing_save\"]")).click();
+    driver.findElement(By.name("submit")).click();
+    try {
+      assertTrue(isElementPresent(By.cssSelector("div.order-number. > span.value")));
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    try {
+      assertTrue(isElementPresent(By.xpath("//div[@id='primary']/div[2]/table/tbody/tr[2]/td[4]/div/table/tbody/tr/td[2]")));
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+  }
+
+  @AfterSuite
+  public void tearDown() throws Exception {
+    driver.quit();
+    String verificationErrorString = verificationErrors.toString();
+    if (!"".equals(verificationErrorString)) {
+      fail(verificationErrorString);
+    }
+  }
+
+  private boolean isElementPresent(By by) {
+    try {
+      driver.findElement(by);
+      return true;
+    } catch (NoSuchElementException e) {
+      return false;
+    }
+  }
+
+  private boolean isAlertPresent() {
+    try {
+      driver.switchTo().alert();
+      return true;
+    } catch (NoAlertPresentException e) {
+      return false;
+    }
+  }
+
+  private String closeAlertAndGetItsText() {
+    try {
+      Alert alert = driver.switchTo().alert();
+      String alertText = alert.getText();
+      if (acceptNextAlert) {
+        alert.accept();
+      } else {
+        alert.dismiss();
+      }
+      return alertText;
+    } finally {
+      acceptNextAlert = true;
+    }
+  }
+}

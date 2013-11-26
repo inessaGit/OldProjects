@@ -1,0 +1,42 @@
+package com.nautica.test;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Properties;
+
+import org.apache.log4j.Logger;
+
+public class Reading_properties {
+
+	/**
+	 * @param args
+	 * @throws IOException 
+	 */
+	public static void main(String[] args) throws IOException {
+		
+		// TODO Auto-generated method stub
+		
+		//log4j
+		Logger APPLICATION_LOGS=Logger.getLogger("devpinoyLogger");
+		APPLICATION_LOGS.debug("hello");
+		APPLICATION_LOGS.debug("writing to log file");
+		APPLICATION_LOGS.debug("starting xyz test");
+		
+		//propeties file
+		Properties prop=new Properties();
+		//try to get the path
+		File file = new File("test.properties");
+		System.out.println("path is "+file.getCanonicalPath());
+		
+		//read from the properties file		
+		FileInputStream ip=new FileInputStream("/Users/igonzalez/Desktop/WORKING_WITH_ECLIPSE/Nautica/src/config/test.properties");
+		prop.load(ip);
+		System.out.println(prop.getProperty("name"));
+		System.out.println(prop.getProperty("DOB"));
+		System.out.println(prop.getProperty("Work"));
+				
+	}
+
+}

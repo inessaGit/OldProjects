@@ -1,0 +1,16 @@
+package unitTests;
+
+import com.nautica.util.*;
+
+
+public class TestSendMail {
+	
+	public static void main(String args[])
+	{
+		SendMail testSM= new SendMail();
+		//testSM.execute(reportFileName);
+		
+		System.out.println(System.getProperty("user.dir"));
+	}
+
+}

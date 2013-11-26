@@ -1,0 +1,78 @@
+package com.nautica.util;
+// reads the xls files and generates corresponding html reports
+// Calls sendmail - mail
+import java.io.*;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Properties;
+
+import org.apache.log4j.Logger;
+import org.testng.Reporter;
+
+import com.nautica.test.Constants;
+import com.nautica.xls.read.XLSReader;
+
+public class ReportUtil {
+public static String result_FolderName=null;
+String fileName;
+
+	public static void main(String[] arg) throws Exception {
+		// read suite.xls
+		Logger log = Logger.getLogger("myLogger");//log4j logger; level should be set to ALL in log4j.properties
+		
+		
+
+		System.out.println("executing ReportUtil.java");
+		log.info("executing ReportUtil.java");
+		
+		Calendar c = Calendar.getInstance();
+	    
+	    java.text.SimpleDateFormat df2 = new java.text.SimpleDateFormat("MMM");
+	    
+	    String date= "" + c.get(Calendar.YEAR) +
+                "-" + df2.format(c.getTime())+
+                "-" + c.get(Calendar.DAY_OF_MONTH) +
+                "-" + c.get(Calendar.HOUR_OF_DAY) +
+                "hr-" + c.get(Calendar.MINUTE) +
+                "min";
+		
+	   // fileName=
+		 result_FolderName="Reports"+"_"+date;//this is folder name for Reports
+			System.out.println(result_FolderName);
+			log.info(("This is folder name for results of running test"+result_FolderName));
+
+		 
+		 String reportsDirPath=System.getProperty("user.dir")+"/Reports/"+result_FolderName;
+		 System.out.println(System.getProperty("user.dir"));
+		 File folder = new File(reportsDirPath);
+		 
+		 folder.mkdir();
+
+
+		
+		 ReadingProperties rp = new ReadingProperties();//this class is a util class that has 2 methods for reading config. or OR. file; it is in com.nautica.util package
+
+		 String val_env= rp.readConfigProperties("environment");
+		 log.info("Environement value is "+ val_env);
+
+		 String val_release =  rp.readConfigProperties("release");
+		 log.info("release value is "+val_release);
+
+		 log.info("folder that contains reports: "+  result_FolderName);
+
+		 XLSReader suiteXLS = new XLSReader(System.getProperty("user.dir")+"/src/com/nautica/xls/Suite.xlsx");
+
+
+		 //	SendMail.execute(rp.readConfigProperties(("report_file_name")));
+
+
+	}
+
+}
+
+class TestReportUtil
+{
+	public static void test(String args[]){
+		System.out.println("test");	}
+
+}

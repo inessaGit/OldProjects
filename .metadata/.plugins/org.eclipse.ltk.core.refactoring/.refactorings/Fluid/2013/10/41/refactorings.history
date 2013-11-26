@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename method &apos;Nautica.NauticaCommon.betterSubcat(...)&apos; to &apos;listAllSubcat&apos;&#x0A;- Original project: &apos;Fluid&apos;&#x0A;- Original element: &apos;Nautica.NauticaCommon.betterSubcat(...)&apos;&#x0A;- Renamed element: &apos;Nautica.NauticaCommon.listAllSubcat(...)&apos;&#x0A;- Update references to refactored element" delegate="false" deprecate="false" description="Rename method &apos;betterSubcat&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.method" input="/src&lt;Nautica{NauticaCommon.java[NauticaCommon~betterSubcat~QWebDriver;" name="listAllSubcat" references="true" stamp="1381298084828" version="1.0"/>
+</session>

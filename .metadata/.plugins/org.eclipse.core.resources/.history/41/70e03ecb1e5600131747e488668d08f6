@@ -1,0 +1,70 @@
+package com.nautica.util;
+// reads the xls files and generates corresponding html reports
+// Calls sendmail - mail
+import java.io.*;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Properties;
+
+import org.apache.log4j.Logger;
+import org.testng.Reporter;
+
+import com.nautica.test.Constants;
+import com.nautica.xls.read.XLSReader;
+
+public class ReportUtil {
+public static String result_FolderName=null;
+
+	public static void main(String[] arg) throws Exception {
+		// read suite.xls
+		System.out.println("executing");
+		
+		Calendar c = Calendar.getInstance();
+	    
+	    java.text.SimpleDateFormat df2 = new java.text.SimpleDateFormat("MMM");
+	    
+	    String date= "" + c.get(Calendar.YEAR) +
+                "-" + df2.format(c.getTime())+
+                "-" + c.get(Calendar.DAY_OF_MONTH) +
+                "-" + c.get(Calendar.HOUR_OF_DAY) +
+                "hr-" + c.get(Calendar.MINUTE) +
+                "min";
+		System.out.println(date);
+		
+		 result_FolderName="Reports"+"_"+date;//this is folder name for Reports
+		 
+		 
+		 
+		String reportsDirPath=System.getProperty("user.dir")+"/Reports";
+		System.out.println(System.getProperty("user.dir"));
+		File f = new File(result_FolderName);
+		
+		Logger log = Logger.getLogger("myLogger");//log4j logger; level should be set to ALL in log4j.properties
+		ReadingProperties rp = new ReadingProperties(log);//this class is a util class that has 2 methods for reading config. or OR. file; it is in com.nautica.util package
+		
+		rp.readConfigProperties("environment ");
+		
+	
+		log.info("Environement "+ rp.readConfigProperties("environment"));
+
+		
+		rp.readConfigProperties("release");
+		log.info("release "+ rp.readConfigProperties("release"));
+log.info("folder that contains reports: "+  result_FolderName);
+		
+		XLSReader suiteXLS = new XLSReader(System.getProperty("user.dir")+"/src/com/nautica/xls/Suite.xlsx");
+
+
+	//	SendMail.execute(rp.readConfigProperties(("report_file_name")));
+		
+		
+	}
+
+}
+
+class TestReportUtil
+{
+	public static void test(String args[]){
+System.out.println("test");	}
+	
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="FirstTestSuite">
+
+<test name="testKipOrderSummaryUSA">
+
+<classes>
+
+<class name="KiplingCommon.KipCheckoutUSA"></class>
+
+</classes>
+
+</test>
+
+<test name="testKipOrderSummaryMonogram">
+
+<classes>
+
+<class name="KiplingCommon.KipCheckoutUSAMonogram"></class>
+
+</classes>
+
+</test>
+
+<test name="testKipOrderSummaryMonogramCoupon">
+
+<classes>
+<class name="KiplingCommon.KipCheckoutUSAMonogramWithCoupon"></class>
+</classes>
+</test>
+
+<test name="testHomeSubcat">
+
+<classes>
+
+<class name="Nautica.TestNauticaCommon"></class>
+
+</classes>
+
+</test>
+
+</suite>
+

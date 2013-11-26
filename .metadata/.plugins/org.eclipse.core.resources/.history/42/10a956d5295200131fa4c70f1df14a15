@@ -1,0 +1,255 @@
+package Nautica;
+
+
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Reporter;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+import com.sun.jna.platform.FileUtils;
+
+import KiplingCommon.KipCommonMethods;
+import bsh.Capabilities;
+
+
+public class nauCheckoutUSA {
+WebDriver dr1;
+WebDriverWait wait;
+  
+  @BeforeTest
+  public void setUp() throws Exception {
+    dr1 = new FirefoxDriver();
+    
+	//File file=new File("/Users/igonzalez/Desktop/SELENIUM_jar/selenium/chromedriver");
+    //System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
+	//driver = new ChromeDriver();
+   String url=NauticaCommon.getUrl("baseUrl");
+	dr1.get(url);
+  }
+  @Test
+
+  public void Addtocart() {
+
+ 
+  //click on mens cat page
+
+  dr1.findElement( By.id("nav-mens")).click();
+
+  //click on Polo Shirts subcat link
+
+  dr1.findElement(By.xpath("//*[@id='cat-nav-mens']/li[2]/a")).click();
+
+  //click on product image
+
+  dr1.findElement(By.xpath("//*[@id='bcOBMiaagZhwYaaadakUhz5K68']/div[1]/a/img")).click();
+
+  System.out.println(dr1.getTitle());
+
+  //click on size drop down
+
+  dr1.findElement(By.xpath("//*[@id='s2id_va-size']/a/div/b")).click();
+
+ 
+  Actions action = new Actions(dr1);
+  WebElement we = dr1.findElement(By.xpath("html/body/div[11]/ul/li[2]/div"));
+  action.moveToElement(we).click().build().perform();
+
+
+  WebDriverWait wait = new WebDriverWait(dr1,60); // The int here is the maximum time in seconds the element can wait.
+  wait.until(ExpectedConditions.elementToBeClickable(By.id("add-to-cart")));
+
+
+  WebElement textlink = dr1.findElement(By.id("add-to-cart"));
+
+  if (textlink.isEnabled())
+
+    System.out.println("View link: Enabled");
+
+  else
+
+    System.out.println("View link: Disabled");
+
+ 
+dr1.findElement(By.xpath("//*[@id='add-to-cart']")).click();
+dr1.findElement(By.xpath("//*[@id='mini-cart']/a")).click();
+dr1.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+
+dr1.findElement(By.xpath("//*[@id='checkout-form']/fieldset/button")).click();
+  }
+
+ 
+ @Test
+
+ public void guestCheckout()
+
+ {// now on checkout intercept- clicking guest checkout
+
+wait = new WebDriverWait(dr1,60); // The int here is the maximum time in seconds the element can wait.
+
+  wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='primary']/div/div[1]/div/div/form/fieldset/div/button")));
+
+
+  WebElement textlink4 = dr1.findElement(By.xpath("//*[@id='primary']/div/div[1]/div/div/form/fieldset/div/button"));
+
+  if (textlink4.isEnabled())
+
+    System.out.println("Guest checkout Enabled");
+
+  else
+
+    System.out.println("Guest checkout Disabled");
+
+dr1.findElement(By.xpath("//*[@id='primary']/div/div[1]/div/div/form/fieldset/div/button")).click();
+dr1.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+
+
+//fill form- shipping
+
+Select selectCountry= new Select(dr1.findElement(By.id("dwfrm_singleshipping_shippingAddress_addressFields_country")));
+
+List<WebElement>allCountries=selectCountry.getOptions();
+List<String> countries= new ArrayList<String>();
+for(WebElement country: allCountries)
+{
+   String countryOption = country.getAttribute("innerHTML").trim();
+   
+ //  Reporter.log("This are the states in the state drop down: "+ stateOption);
+      System.out.println ("This are the countries in the country drop down: "+ countryOption);
+     
+}
+ 
+
+
+dr1.findElement(By.id("dwfrm_singleshipping_shippingAddress_addressFields_firstName")).sendKeys("Veronica");
+
+dr1.findElement(By.id("dwfrm_singleshipping_shippingAddress_addressFields_lastName")).sendKeys("Peter");
+
+ 
+//address 1
+
+dr1.findElement(By.id("dwfrm_singleshipping_shippingAddress_addressFields_address1")).sendKeys("222 Sutter Street");
+
+//address 2
+
+dr1.findElement(By.id("dwfrm_singleshipping_shippingAddress_addressFields_address2")).sendKeys("8th Floor");
+
+//country- find if usa is selected by default
+
+//*[@id='s2id_dwfrm_singleshipping_shippingAddress_addressFields_country']/a/span
+
+ 
+//city
+
+dr1.findElement(By.id("dwfrm_singleshipping_shippingAddress_addressFields_city")).sendKeys("San Francisco");
+
+//state
+
+dr1.findElement(By.xpath("//*[@id='s2id_dwfrm_singleshipping_shippingAddress_addressFields_states_state']/a/div/b")).click();
+
+Actions action = new Actions(dr1);
+
+  WebElement we5 = dr1.findElement(By.xpath("html/body/div[7]/ul/li[6]/div"));
+
+  action.moveToElement(we5).click().build().perform();
+
+//zip
+
+  dr1.findElement(By.id("dwfrm_singleshipping_shippingAddress_addressFields_zip")).sendKeys("94108");
+
+//phone
+
+  dr1.findElement(By.id("dwfrm_singleshipping_shippingAddress_addressFields_phone")).sendKeys("5555555555");
+
+//continue
+
+ wait = new WebDriverWait(dr1,60); // The int here is the maximum time in seconds the element can wait.
+  wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='dwfrm_singleshipping_shippingAddress']/div[3]/button")));
+
+
+  WebElement textlink5 = dr1.findElement(By.xpath("//*[@id='dwfrm_singleshipping_shippingAddress']/div[3]/button"));
+
+  if (textlink5.isEnabled())
+
+    System.out.println("Continue button is : Enabled");
+
+  else
+
+    System.out.println("Continue button is :  Disabled");
+
+
+dr1.findElement(By.xpath("//*[@id='dwfrm_singleshipping_shippingAddress']/div[3]/button")).click();
+
+dr1.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+
+dr1.findElement(By.xpath("//*[@id='dwfrm_singleshipping_shippingAddress']/div[2]/table/tbody/tr[3]/td[1]/input")).click();
+
+
+  wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='dwfrm_billing']/div/button")));
+  dr1.findElement(By.xpath("//*[@id='dwfrm_billing']/div/button")).click();
+  dr1.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+
+  //fill in billing pre-populated with shipping details
+
+dr1.findElement(By.id("dwfrm_billing_billingAddress_email_emailAddress")).sendKeys("vpeter@fluid.com");
+
+dr1.findElement(By.id("dwfrm_billing_paymentMethods_creditCard_owner")).sendKeys("v peter");
+
+dr1.findElement(By.id("dwfrm_billing_paymentMethods_creditCard_number")).sendKeys("4111111111111111");
+
+dr1.findElement(By.id("dwfrm_billing_paymentMethods_creditCard_cvn")).sendKeys("411");
+
+     dr1.findElement(By.xpath("//*[@id='s2id_dwfrm_billing_paymentMethods_creditCard_month']/a/div/b")).click();
+
+
+  WebElement we6 = dr1.findElement(By.xpath("html/body/div[7]/ul/li[4]/div"));
+
+  action.moveToElement(we6).click().build().perform();
+
+  dr1.findElement(By.xpath("//*[@id='s2id_dwfrm_billing_paymentMethods_creditCard_year']/a/div/b")).click();
+
+   action= new Actions(dr1);
+
+  WebElement we7 = dr1.findElement(By.xpath("html/body/div[7]/ul/li[4]/div"));
+
+  action.moveToElement(we7).click().build().perform();
+
+
+  dr1.findElement(By.xpath("//*[@id='s2id_dwfrm_billing_paymentMethods_creditCard_type']/a/div/b")).click();
+
+
+  WebElement we8 = dr1.findElement(By.xpath("html/body/div[7]/ul/li[2]/div"));
+
+  action.moveToElement(we8).click().build().perform();
+
+ 
+  wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='dwfrm_billing']/div/button")));
+
+dr1.findElement(By.xpath("//*[@id='dwfrm_billing']/div/button")).click();
+
+dr1.findElement(By.xpath("//*[@id='cart-order-checkout']/form/fieldset/div/button")).click();
+
+ }
+
+ 
+ }
+
+ 

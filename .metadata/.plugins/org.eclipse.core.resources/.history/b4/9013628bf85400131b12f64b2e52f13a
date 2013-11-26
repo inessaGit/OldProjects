@@ -1,0 +1,35 @@
+#my properties file
+
+#li represents country or state depending on which menu is open after click on toggle
+kip_countryToggleXpath= .//*[@id='s2id_dwfrm_singleshipping_shippingAddress_addressFields_country']/a/div/b
+
+kip_production_countryDropDownXpath=html/body/div[8]/ul/li[1]/div
+kip_staging_countryDropDownXpath=.//*[@id='ext-gen6']/div[118]/ul/li[5]/div
+kip_dev_countryDropDownXpath=.//*[@id='ext-gen6']/div[118]/ul/li[5]/div
+
+
+#li represents state div is still 8 depending on which menu is open after click on toggle
+kip_stateToggleXpath= .//*[@id='s2id_dwfrm_singleshipping_shippingAddress_addressFields_states_state']/a/div/b
+
+kip_production_stateDropDownXpath=html/body/div[8]/ul/li[3]/div
+kip_staging_stateDropDownXpath=.//*[@id='ext-gen6']/div[118]/ul/li[6]/div
+kip_dev_stateDropDownXpath=.//*[@id='ext-gen6']/div[118]/ul/li[6]/div
+
+#checkout name
+
+kip_firstNameId= dwfrm_singleshipping_shippingAddress_addressFields_firstName
+kip_lastNameId= dwfrm_singleshipping_shippingAddress_addressFields_lastName
+
+#checkout address
+kip_streetId= dwfrm_singleshipping_shippingAddress_addressFields_address1
+kip_cityId=dwfrm_singleshipping_shippingAddress_addressFields_city
+kip_apartmentId=dwfrm_singleshipping_shippingAddress_addressFields_address2
+kip_zipId=dwfrm_singleshipping_shippingAddress_addressFields_zip
+
+kip_phoneId=dwfrm_singleshipping_shippingAddress_addressFields_phone
+
+
+
+
+
+
